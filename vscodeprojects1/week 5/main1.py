@@ -48,4 +48,4 @@ async def mem(ctx):
 #    await ctx.send(file=picture)
 
 
-bot.run('MTE4MzA5Mzk2MDc1NTkyNDk5Mg.GBPVZ5.amhLs8j0amd4O0_-UNNKHt_OcqArYc2q_pkRCc')
+bot.run("")
