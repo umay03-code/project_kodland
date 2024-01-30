@@ -1,6 +1,7 @@
 from flask import Flask
 from main import pas
 import random
+import os
 
 #Şifre oluşturucu
 #Rastgele bir resim gösterme
@@ -20,16 +21,21 @@ head_tail = ["yazı","tura"]
 
 dice = ["1","2","3","4","5","6"]
 
-images_list= [f'"{1}.png","{2}.png","{3}.png","{4}.png","{5}.png","{6}.png","{7}.png","{8}.png","{9}.png","{10}.png","{11}.png","{12}.png","{13}.png"']
+#listede resim sayısı kadar sayı olmasını nasıl sağlarım?
+images_list= ["1.png","2.png","3.png","4.png","5.png","6.png","7.png","8.png","9.png","10.png","11.png","12.png","13.png"]
+img_name = random.choice(os.listdir('images3'))
+
+image_path = os.path.join("images3", random.choice(img_name))
 
 #@app.route("/")
 #def addiction():
 #    return f"<h1>Teknoloji Bağımlılığı</h1> \n <p>{random.choice(facts_list)}</p>"
 
+
 #yazıların görünüşleri ve sitenin görünüşünü değiştir, linklerin renkleri ve linkler arası boşluklar nasıl ayarlanacak?
 @app.route("/")
 def index():
-    return f"<h1>MERHABA! Bu sayfada, teknolojik bağımlılıklar hakkında birkaç ilginç gerçeği öğrenebilirsiniz!</h1> <a href='/rastgele_gercek'>Rastgele bir gerçeği görüntüle!</a> <a href='/yazi_tura'>yazı tura makinesi.</a> <a href='/zar'>zar at.</a> <a href='/rastgele_resim'>teknoloji bağımlılığı hakkında rastgele bir resim görmek istiyorum!</a> <a href='/sifre'>rastgele şifre oluşturucu.</a>" 
+    return f"<h1>MERHABA! Bu sayfada, teknolojik bağımlılıklar hakkında birkaç ilginç gerçeği öğrenebilirsiniz!</h1> <br> <a href='/rastgele_gercek'>Rastgele bir gerçeği görüntüle!</a> <br> <a href='/yazi_tura'>yazı tura makinesi.</a> <br> <a href='/zar'>zar at.</a> <br> <a href='/rastgele_resim'>teknoloji bağımlılığı hakkında rastgele bir resim görmek istiyorum!</a> <br> <a href='/sifre'>rastgele şifre oluşturucu.</a>" 
 
 @app.route("/rastgele_gercek")
 def facts():
@@ -46,7 +52,8 @@ def dc():
 #dosyadan rastgele resimleri nasıl sitede göstertirim? (images3 klasöründen)
 @app.route("/rastgele_resim")
 def imgs():
-    return f"<img src='G:\My Drive\Works\projects\vscodeprojects1\images3\{random.choice(images_list)}'>"
+    return f"<img src={image_path}>"
+    #return f"<img src='vscodeprojects1/images3/{str(random.choice(img_name))}'>" 
 
 #kullanıcıdan şifre uzunluğu veya kullanılacak karakterleri nasıl isterim? 
 #şifrenin art arda aynı karakterler kullanmasının önüne geçilebilir mi?
