@@ -209,6 +209,6 @@ async def help(ctx):
     await ctx.send("$bye: sending off \n $hello: greeting \n $heh: laugh \n $coin: head or tail \n $emoji: random emoji \n $goodnight: wishing a good night \n $password: random password \n $goodmorning: wishing a good morning \n secret_command: ?")
 
 
-bot.run("")
+bot.run("MTE4MzA5Mzk2MDc1NTkyNDk5Mg.GfXVR2.nF2eLvYYHx8pTI3_h2HTeJt3adDwA34FK2HTmQ")
 
 
