@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climate Change Forum</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Climate Change Forum</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/forum">Forum</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Discussion Forum</h2>
+        <form method="post" action="/forum">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <label for="file">File:</label>
+            <input type="file" id="file" name="file">
+
+            <button type="submit">Post</button>
+        </form>
+        <section>
+            <h3>Posts</h3>
+            {% for post in posts %}
+            <article>
+                <h4>{{ post.name }}</h4>
+                <p>{{ post.message }}</p>
+            </article>
+            {% endfor %}
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Climate Change Forum</p>
+    </footer>
+</body>
+</html>
